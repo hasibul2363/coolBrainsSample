@@ -1,9 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>SuitSupply.ProductCatalog.Validators</AssemblyName>
     <RootNamespace>SuitSupply.ProductCatalog.Validators</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.0.101" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\infrastructure\validator\Validator\Validator.csproj" />
+    <ProjectReference Include="..\Commands\Commands.csproj" />
+  </ItemGroup>
 
 </Project>

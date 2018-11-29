@@ -7,21 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "businessApp", "businessApp", "{6960A643-F184-47E9-B783-0D6126463E12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductCatalog.WebService", "businessApp\ProductCatalog.WebService\ProductCatalog.WebService.csproj", "{1947180A-4842-47FF-A348-480D52F7719D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductCatalog.WebService", "businessApp\ProductCatalog.WebService\ProductCatalog.WebService.csproj", "{1947180A-4842-47FF-A348-480D52F7719D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandHandlers", "businessApp\CommandHandlers\CommandHandlers.csproj", "{D632D6ED-7444-456B-BBEC-9D0CB450F3DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandHandlers", "businessApp\CommandHandlers\CommandHandlers.csproj", "{D632D6ED-7444-456B-BBEC-9D0CB450F3DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryHandlers", "businessApp\QueryHandlers\QueryHandlers.csproj", "{A702EEF1-77CD-4E0D-A752-7B9FCD27B67B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueryHandlers", "businessApp\QueryHandlers\QueryHandlers.csproj", "{A702EEF1-77CD-4E0D-A752-7B9FCD27B67B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModels", "businessApp\DomainModels\DomainModels.csproj", "{567DC8FA-0EC6-4B10-BEF7-CD86A66A03A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainModels", "businessApp\DomainModels\DomainModels.csproj", "{567DC8FA-0EC6-4B10-BEF7-CD86A66A03A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators", "businessApp\Validators\Validators.csproj", "{069F64D7-B49C-455F-B0D9-C4CDCA0A6EA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators", "businessApp\Validators\Validators.csproj", "{069F64D7-B49C-455F-B0D9-C4CDCA0A6EA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "businessApp\Commands\Commands.csproj", "{4BD87466-3565-4CCE-9F6D-CE422C50F951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commands", "businessApp\Commands\Commands.csproj", "{4BD87466-3565-4CCE-9F6D-CE422C50F951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queries", "businessApp\Queries\Queries.csproj", "{963E52D1-9E91-419A-B844-15640AD90FA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queries", "businessApp\Queries\Queries.csproj", "{963E52D1-9E91-419A-B844-15640AD90FA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContext", "businessApp\DataContext\DataContext.csproj", "{10A13A00-19DE-4C05-A522-2CF0C8A4C471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataContext", "businessApp\DataContext\DataContext.csproj", "{10A13A00-19DE-4C05-A522-2CF0C8A4C471}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository.Contracts", "infrastructure\dataAccess\Repository.Contracts\Repository.Contracts.csproj", "{DF203EE0-FB07-4027-952E-8AA753EC6508}"
 EndProject
@@ -30,6 +30,20 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "infrastructure\dataAccess\Repository\Repository.csproj", "{1563767E-813B-4470-A064-516495538807}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository.Test", "infrastructure\dataAccess\Repository.Test\Repository.Test.csproj", "{B50BA991-EBD4-4E34-90C3-CBA1C3E3DF97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bus", "bus", "{4B8C4BE1-ABC3-4862-88ED-F4A73D2E4A8D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bus.Contracts", "infrastructure\bus\Bus.Contracts\Bus.Contracts.csproj", "{93ED8076-4254-4DF8-954D-9B3D37A44C04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bus", "infrastructure\bus\Bus\Bus.csproj", "{A6B85C54-4B1C-4754-9ACD-EC4538E1D5D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "validator", "validator", "{C8849AA4-D5A4-4DC4-9A0B-507DDAEFF0C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contract", "infrastructure\validator\Contract\Contract.csproj", "{03B40D41-2DAF-4DF4-82E7-E55C762A68E4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validator", "infrastructure\validator\Validator\Validator.csproj", "{0ED64E68-FAC8-40A1-95DA-38D855F61B92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validator.Test", "infrastructure\validator\Validator.Test\Validator.Test.csproj", "{375957E8-B46B-421E-AE34-B1D957A8778D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +95,26 @@ Global
 		{B50BA991-EBD4-4E34-90C3-CBA1C3E3DF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50BA991-EBD4-4E34-90C3-CBA1C3E3DF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B50BA991-EBD4-4E34-90C3-CBA1C3E3DF97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93ED8076-4254-4DF8-954D-9B3D37A44C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93ED8076-4254-4DF8-954D-9B3D37A44C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93ED8076-4254-4DF8-954D-9B3D37A44C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93ED8076-4254-4DF8-954D-9B3D37A44C04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6B85C54-4B1C-4754-9ACD-EC4538E1D5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B85C54-4B1C-4754-9ACD-EC4538E1D5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B85C54-4B1C-4754-9ACD-EC4538E1D5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B85C54-4B1C-4754-9ACD-EC4538E1D5D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B40D41-2DAF-4DF4-82E7-E55C762A68E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B40D41-2DAF-4DF4-82E7-E55C762A68E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B40D41-2DAF-4DF4-82E7-E55C762A68E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B40D41-2DAF-4DF4-82E7-E55C762A68E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED64E68-FAC8-40A1-95DA-38D855F61B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED64E68-FAC8-40A1-95DA-38D855F61B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED64E68-FAC8-40A1-95DA-38D855F61B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED64E68-FAC8-40A1-95DA-38D855F61B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{375957E8-B46B-421E-AE34-B1D957A8778D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{375957E8-B46B-421E-AE34-B1D957A8778D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{375957E8-B46B-421E-AE34-B1D957A8778D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{375957E8-B46B-421E-AE34-B1D957A8778D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +132,13 @@ Global
 		{B6B9CD59-A237-4EFD-A37F-0EB0B55C56E9} = {B4E26E64-FF67-42C9-BF92-048C31DB7AC1}
 		{1563767E-813B-4470-A064-516495538807} = {B6B9CD59-A237-4EFD-A37F-0EB0B55C56E9}
 		{B50BA991-EBD4-4E34-90C3-CBA1C3E3DF97} = {B6B9CD59-A237-4EFD-A37F-0EB0B55C56E9}
+		{4B8C4BE1-ABC3-4862-88ED-F4A73D2E4A8D} = {B4E26E64-FF67-42C9-BF92-048C31DB7AC1}
+		{93ED8076-4254-4DF8-954D-9B3D37A44C04} = {4B8C4BE1-ABC3-4862-88ED-F4A73D2E4A8D}
+		{A6B85C54-4B1C-4754-9ACD-EC4538E1D5D7} = {4B8C4BE1-ABC3-4862-88ED-F4A73D2E4A8D}
+		{C8849AA4-D5A4-4DC4-9A0B-507DDAEFF0C9} = {B4E26E64-FF67-42C9-BF92-048C31DB7AC1}
+		{03B40D41-2DAF-4DF4-82E7-E55C762A68E4} = {C8849AA4-D5A4-4DC4-9A0B-507DDAEFF0C9}
+		{0ED64E68-FAC8-40A1-95DA-38D855F61B92} = {C8849AA4-D5A4-4DC4-9A0B-507DDAEFF0C9}
+		{375957E8-B46B-421E-AE34-B1D957A8778D} = {C8849AA4-D5A4-4DC4-9A0B-507DDAEFF0C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FFA145D4-B5A6-4E50-8AFA-57D575BDC73D}

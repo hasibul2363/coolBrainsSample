@@ -6,4 +6,8 @@
     <RootNamespace>SuitSupply.ProductCatalog.Commands</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\infrastructure\bus\Bus.Contracts\Bus.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
