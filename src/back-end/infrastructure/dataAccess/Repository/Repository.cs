@@ -11,11 +11,11 @@ namespace SuitSupply.Infrastructure.Repository
     {
         private readonly BaseContext _dbContext;
         public Repository(BaseContext context) => _dbContext = context;
-        public Task<T> GetItem<T>(Expression<Func<T, bool>> filter) where T : class => _dbContext.Set<T>().FirstOrDefaultAsync(filter);
+        public Task<T> GetItem<T>(Expression<Func<T, bool>> filter) where T : class => _dbContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(filter);
 
         public IQueryable<T> GetItems<T>(Expression<Func<T, bool>> filter = null) where T : class
         {
-            return filter == null ? _dbContext.Set<T>() : _dbContext.Set<T>().Where(filter);
+            return filter == null ? _dbContext.Set<T>().AsNoTracking() : _dbContext.Set<T>().AsNoTracking().Where(filter);
         }
 
         public T Add<T>(T model) where T : class => _dbContext.Set<T>().Add(model).Entity;
