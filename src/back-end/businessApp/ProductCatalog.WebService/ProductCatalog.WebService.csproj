@@ -14,4 +14,20 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\infrastructure\bus\Bus.Contracts\Bus.Contracts.csproj" />
+    <ProjectReference Include="..\..\infrastructure\bus\Bus\Bus.csproj" />
+    <ProjectReference Include="..\..\infrastructure\dataAccess\Repository.Contracts\Repository.Contracts.csproj" />
+    <ProjectReference Include="..\..\infrastructure\dataAccess\Repository\Repository.csproj" />
+    <ProjectReference Include="..\..\infrastructure\validator\Contract\Contract.csproj" />
+    <ProjectReference Include="..\..\infrastructure\validator\Validator\Validator.csproj" />
+    <ProjectReference Include="..\CommandHandlers\CommandHandlers.csproj" />
+    <ProjectReference Include="..\Commands\Commands.csproj" />
+    <ProjectReference Include="..\DataContext\DataContext.csproj" />
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj" />
+    <ProjectReference Include="..\Queries\Queries.csproj" />
+    <ProjectReference Include="..\QueryHandlers\QueryHandlers.csproj" />
+    <ProjectReference Include="..\Validators\Validators.csproj" />
+  </ItemGroup>
+
 </Project>

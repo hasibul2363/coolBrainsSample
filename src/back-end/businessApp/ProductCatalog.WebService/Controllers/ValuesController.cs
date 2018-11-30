@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SuitSupply.Infrastructure.Bus.Contracts;
+using SuitSupply.ProductCatalog.Commands;
 
 namespace SuitSupply.ProductCatalog.WebService.Controllers
 {
@@ -7,10 +11,22 @@ namespace SuitSupply.ProductCatalog.WebService.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        public ISuitBus SuitBus { get; set; }
+        public ValuesController(ISuitBus suitBus)
+        {
+            SuitBus = suitBus;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<ActionResult<IEnumerable<string>>> Get()
         {
+            var command = new CreateProductCommand
+            {
+                Id = Guid.NewGuid(), Code = Guid.NewGuid().ToString(), Price = 256, Name = "PP", Photo = "photo"
+            };
+
+            var response = await SuitBus.Send(command);
             return new string[] { "value1", "value2" };
         }
 

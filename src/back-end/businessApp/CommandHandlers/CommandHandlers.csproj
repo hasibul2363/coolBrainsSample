@@ -6,4 +6,18 @@
     <RootNamespace>SuitSupply.ProductCatalog.CommandHandlers</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\infrastructure\bus\Bus.Contracts\Bus.Contracts.csproj" />
+    <ProjectReference Include="..\..\infrastructure\bus\Bus\Bus.csproj" />
+    <ProjectReference Include="..\..\infrastructure\dataAccess\Repository.Contracts\Repository.Contracts.csproj" />
+    <ProjectReference Include="..\..\infrastructure\dataAccess\Repository\Repository.csproj" />
+    <ProjectReference Include="..\Commands\Commands.csproj" />
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj" />
+    <ProjectReference Include="..\Validators\Validators.csproj" />
+  </ItemGroup>
+
 </Project>
