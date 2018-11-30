@@ -10,7 +10,7 @@ namespace SuitSupply.ProductCatalog.Commands
         public Guid Id { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
-        public string Photo { get; set; }
+        public string PhotoUrl { get; set; }
         public decimal Price { get; set; }
     }
 }

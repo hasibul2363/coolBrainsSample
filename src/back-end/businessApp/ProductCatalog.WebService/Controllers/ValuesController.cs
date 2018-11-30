@@ -23,7 +23,7 @@ namespace SuitSupply.ProductCatalog.WebService.Controllers
         {
             var command = new CreateProductCommand
             {
-                Id = Guid.NewGuid(), Code = Guid.NewGuid().ToString(), Price = 256, Name = "PP", Photo = "photo"
+                Id = Guid.NewGuid(), Code = Guid.NewGuid().ToString(),Price = 256, Name = "PP", PhotoUrl = "photo"
             };
 
             var response = await SuitBus.Send(command);

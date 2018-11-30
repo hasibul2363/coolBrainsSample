@@ -15,6 +15,7 @@
     <ProjectReference Include="..\..\infrastructure\bus\Bus\Bus.csproj" />
     <ProjectReference Include="..\..\infrastructure\dataAccess\Repository.Contracts\Repository.Contracts.csproj" />
     <ProjectReference Include="..\..\infrastructure\dataAccess\Repository\Repository.csproj" />
+    <ProjectReference Include="..\..\infrastructure\logger\Logger.Contracts\Logger.Contracts.csproj" />
     <ProjectReference Include="..\Commands\Commands.csproj" />
     <ProjectReference Include="..\DomainModels\DomainModels.csproj" />
     <ProjectReference Include="..\Validators\Validators.csproj" />
