@@ -27,8 +27,8 @@ namespace SuitSupply.ProductCatalog.WebService.Controllers
                 Price = 256, Name = "PP", PhotoUrl = "photo"
             };
 
-            var response = await SuitBus.Send(command);
-            return new string[] { "value1", "value2" };
+            //var response = await SuitBus.Send(command);
+            return new string[] { "running.." };
         }
 
         // GET api/values/5

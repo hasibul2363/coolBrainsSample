@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using CommonServiceLocator;
 using DataContext;
@@ -8,9 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SuitSupply.Infrastructure.Bootstrapper;
 using SuitSupply.Infrastructure.Bus;
 using SuitSupply.Infrastructure.Bus.Command;
 using SuitSupply.Infrastructure.Bus.Contracts;
+using SuitSupply.Infrastructure.Bus.Query;
 using SuitSupply.Infrastructure.Logger.Contracts;
 using SuitSupply.Infrastructure.Logger.Serilog;
 using SuitSupply.Infrastructure.Repository;
@@ -20,6 +23,8 @@ using SuitSupply.Infrastructure.Validator.Contract;
 using SuitSupply.ProductCatalog.CommandHandlers;
 using SuitSupply.ProductCatalog.Commands;
 using SuitSupply.ProductCatalog.DomainModels;
+using SuitSupply.ProductCatalog.Queries;
+using SuitSupply.ProductCatalog.QueryHandlers;
 using SuitSupply.ProductCatalog.Validators;
 
 namespace SuitSupply.ProductCatalog.WebService
@@ -37,6 +42,9 @@ namespace SuitSupply.ProductCatalog.WebService
         public void ConfigureServices(IServiceCollection services)
         {
             SeriLogConfiguration.Configure();
+
+            services.AddTransient<ISuitValidator<ProductQuery>, ProductQueryValidator>();
+            services.AddTransient<SuitQueryHandler<List<Product>,ProductQuery>,ProductQueryHandler>();
             services.AddSingleton<ISuitLog, SuitLogUsingSerilog>();
             services.AddTransient<ISuitBus, SuitInmemoryBus>();
             services.AddTransient<ISuitValidator<CreateProductCommand>, CreateProductCommandValidator>();
@@ -64,8 +72,8 @@ namespace SuitSupply.ProductCatalog.WebService
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
-            
-            app.UseMvc();
+
+            SuitWebApiBootstrapper.Use(app);
 
 
 

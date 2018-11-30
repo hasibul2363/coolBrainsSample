@@ -6,4 +6,14 @@
     <RootNamespace>SuitSupply.ProductCatalog.QueryHandlers</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\infrastructure\bus\Bus.Contracts\Bus.Contracts.csproj" />
+    <ProjectReference Include="..\..\infrastructure\bus\Bus\Bus.csproj" />
+    <ProjectReference Include="..\..\infrastructure\dataAccess\Repository.Contracts\Repository.Contracts.csproj" />
+    <ProjectReference Include="..\..\infrastructure\validator\Validator\Validator.csproj" />
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj" />
+    <ProjectReference Include="..\Queries\Queries.csproj" />
+    <ProjectReference Include="..\Validators\Validators.csproj" />
+  </ItemGroup>
+
 </Project>

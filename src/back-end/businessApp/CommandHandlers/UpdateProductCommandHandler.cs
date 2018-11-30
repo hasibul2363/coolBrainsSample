@@ -29,8 +29,6 @@ namespace SuitSupply.ProductCatalog.CommandHandlers
         public override async Task<CommandResponse> Handle(UpdateProductCommand command)
         {
             var product = AutoMapper.Mapper.Map<UpdateProductCommand, Product>(command);
-            var existingProduct = await Repository.GetItem<Product>(p => p.Id == command.Id);
-            product.Code = existingProduct.Code;
             product.LastUpdated = DateTime.UtcNow;
             Repository.Update(product);
             await Repository.SaveChanges();

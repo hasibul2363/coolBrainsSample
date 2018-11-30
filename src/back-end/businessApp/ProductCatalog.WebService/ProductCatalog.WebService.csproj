@@ -13,6 +13,8 @@
   <ItemGroup>
     <PackageReference Include="CommonServiceLocator" Version="2.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +27,7 @@
     <ProjectReference Include="..\..\infrastructure\serviceLocatorAdapter\MsDependency\MsDependency.csproj" />
     <ProjectReference Include="..\..\infrastructure\validator\Contract\Contract.csproj" />
     <ProjectReference Include="..\..\infrastructure\validator\Validator\Validator.csproj" />
+    <ProjectReference Include="..\..\infrastructure\webApiBootstrapper\Bootstrapper\Bootstrapper.csproj" />
     <ProjectReference Include="..\CommandHandlers\CommandHandlers.csproj" />
     <ProjectReference Include="..\Commands\Commands.csproj" />
     <ProjectReference Include="..\DataContext\DataContext.csproj" />

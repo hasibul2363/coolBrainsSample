@@ -24,7 +24,7 @@ namespace SuitSupply.ProductCatalog.Validators
         }
 
         private bool Unique(string productCode) =>
-            !ReadOnlyRepository.GetItems<Product>().Any(p => p.Code == productCode);
+            !ReadOnlyRepository.GetItems<Product>(p => p.Code == productCode).Any();
 
         public SuitValidationResult PerformValidation(CreateProductCommand command) => 
             Validate(command).ToSuitValidationResult();
