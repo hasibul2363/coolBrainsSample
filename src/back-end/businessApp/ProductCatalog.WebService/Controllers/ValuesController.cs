@@ -7,9 +7,10 @@ using SuitSupply.ProductCatalog.Commands;
 
 namespace SuitSupply.ProductCatalog.WebService.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    //[ApiVersion("1.0")]
+    //[Route("api/v{version:apiVersion}/[controller]")]
+    //[ApiController]
+    public class ValuesController : Controller
     {
         public ISuitBus SuitBus { get; set; }
         public ValuesController(ISuitBus suitBus)
@@ -21,39 +22,29 @@ namespace SuitSupply.ProductCatalog.WebService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<string>>> Get()
         {
-            var command = new CreateProductCommand
-            {
-                Id = Guid.NewGuid(), Code = "a7bae2dc-bf47-4432-9f13-ba7ae718206f",
-                Price = 256, Name = "PP", PhotoUrl = "photo"
-            };
+            
+            return new string[] { "running v1.." };
+        }
+    }
 
-            //var response = await SuitBus.Send(command);
-            return new string[] { "running.." };
+
+    //[ApiVersion("2.0")]
+    //[Route("api/v{version:apiVersion}/Values")]
+    //[ApiController]
+    public class ValuesV2Controller : Controller
+    {
+        public ISuitBus SuitBus { get; set; }
+        public ValuesV2Controller(ISuitBus suitBus)
+        {
+            SuitBus = suitBus;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        // GET api/values
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<string>>> Get()
         {
-            return "value";
-        }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return new string[] { "running v2.." };
         }
     }
 }

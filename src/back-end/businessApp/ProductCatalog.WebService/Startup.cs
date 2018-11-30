@@ -28,6 +28,7 @@ using SuitSupply.ProductCatalog.DomainModels;
 using SuitSupply.ProductCatalog.Queries;
 using SuitSupply.ProductCatalog.QueryHandlers;
 using SuitSupply.ProductCatalog.Validators;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SuitSupply.ProductCatalog.WebService
 {
@@ -61,6 +62,10 @@ namespace SuitSupply.ProductCatalog.WebService
             services.AddSingleton(contextBuilder.Options);
             services.AddTransient<BaseContext,ProductCatalogDbContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        
+
+
+
 
             var adapter = new MsServiceLocatorAdapter(services);
             CommonServiceLocator.ServiceLocator.SetLocatorProvider(()=> adapter);
@@ -76,6 +81,18 @@ namespace SuitSupply.ProductCatalog.WebService
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
+
+
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProductCatalogV1"); });
+
+
+            //app.UseSwagger(p =>
+            //{
+            //    p.RouteTemplate = "swagger/{documentName}/help.json";
+            //});
+            //app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/help.json", "ProductCatalogV1"); });
+
 
             SuitWebApiBootstrapper.Use(app);
 
