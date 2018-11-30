@@ -42,6 +42,7 @@ namespace SuitSupply.ProductCatalog.WebService
             services.AddTransient<ISuitValidator<CreateProductCommand>, CreateProductCommandValidator>();
             services.AddTransient<SuitCommandHandler<CreateProductCommand>, CreateProductCommandHandler>();
             services.AddTransient<IRepository, Repository>();
+            services.AddTransient<IReadOnlyRepository, Repository>();
 
             var contextBuilder = new DbContextOptionsBuilder();
             contextBuilder.UseSqlServer(@"Password=Start777;Persist Security Info=True;User ID=sa;Initial Catalog=PC;Data Source=localhost\MSSQLSERVER_2017");
