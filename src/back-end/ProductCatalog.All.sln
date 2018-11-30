@@ -45,19 +45,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validator", "infrastructure
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validator.Test", "infrastructure\validator\Validator.Test\Validator.Test.csproj", "{375957E8-B46B-421E-AE34-B1D957A8778D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsDependency", "infrastructure\serviceLocatorAdapter\MsDependency\MsDependency.csproj", "{A544D2EA-6FDC-43B2-A929-E9A674540DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsDependency", "infrastructure\serviceLocatorAdapter\MsDependency\MsDependency.csproj", "{A544D2EA-6FDC-43B2-A929-E9A674540DDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "serviceLocatorAdapter", "serviceLocatorAdapter", "{53D58756-A155-4D06-BE68-1E81E42EC2C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logger", "logger", "{5B9DB6EE-18FA-4D1A-A8E5-3733504ACBEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger.Contracts", "infrastructure\logger\Logger.Contracts\Logger.Contracts.csproj", "{4B42BE49-5DAB-44FD-A64B-99777DCF376E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger.Contracts", "infrastructure\logger\Logger.Contracts\Logger.Contracts.csproj", "{4B42BE49-5DAB-44FD-A64B-99777DCF376E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger.Serilog", "infrastructure\logger\Logger.Serilog\Logger.Serilog.csproj", "{8BEF585E-4691-4836-B596-8E2ED3526591}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger.Serilog", "infrastructure\logger\Logger.Serilog\Logger.Serilog.csproj", "{8BEF585E-4691-4836-B596-8E2ED3526591}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webApiBootstrapper", "webApiBootstrapper", "{45832C40-4BDE-427A-9673-7F69E06BCB2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrapper", "infrastructure\webApiBootstrapper\Bootstrapper\Bootstrapper.csproj", "{81E1A4E6-AA1D-4CAC-914C-7E01B70F6817}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootstrapper", "infrastructure\webApiBootstrapper\Bootstrapper\Bootstrapper.csproj", "{81E1A4E6-AA1D-4CAC-914C-7E01B70F6817}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bus.Test", "infrastructure\bus\Bus.Test\Bus.Test.csproj", "{FA5A4B8C-6818-4F48-9E2B-F76C066708E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +147,10 @@ Global
 		{81E1A4E6-AA1D-4CAC-914C-7E01B70F6817}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81E1A4E6-AA1D-4CAC-914C-7E01B70F6817}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81E1A4E6-AA1D-4CAC-914C-7E01B70F6817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA5A4B8C-6818-4F48-9E2B-F76C066708E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA5A4B8C-6818-4F48-9E2B-F76C066708E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA5A4B8C-6818-4F48-9E2B-F76C066708E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA5A4B8C-6818-4F48-9E2B-F76C066708E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,6 +182,7 @@ Global
 		{8BEF585E-4691-4836-B596-8E2ED3526591} = {5B9DB6EE-18FA-4D1A-A8E5-3733504ACBEE}
 		{45832C40-4BDE-427A-9673-7F69E06BCB2D} = {B4E26E64-FF67-42C9-BF92-048C31DB7AC1}
 		{81E1A4E6-AA1D-4CAC-914C-7E01B70F6817} = {45832C40-4BDE-427A-9673-7F69E06BCB2D}
+		{FA5A4B8C-6818-4F48-9E2B-F76C066708E2} = {4B8C4BE1-ABC3-4862-88ED-F4A73D2E4A8D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FFA145D4-B5A6-4E50-8AFA-57D575BDC73D}
