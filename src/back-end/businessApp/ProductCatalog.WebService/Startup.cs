@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
 using AutoMapper;
 using CommonServiceLocator;
 using DataContext;
@@ -45,6 +47,8 @@ namespace SuitSupply.ProductCatalog.WebService
 
             services.AddTransient<ISuitValidator<ProductQuery>, ProductQueryValidator>();
             services.AddTransient<SuitQueryHandler<List<Product>,ProductQuery>,ProductQueryHandler>();
+            services.AddTransient<SuitQueryHandler<MemoryStream, ExcelExportQuery>, ExcelExportQueryHandler>();
+
             services.AddSingleton<ISuitLog, SuitLogUsingSerilog>();
             services.AddTransient<ISuitBus, SuitInmemoryBus>();
             services.AddTransient<ISuitValidator<CreateProductCommand>, CreateProductCommandValidator>();
