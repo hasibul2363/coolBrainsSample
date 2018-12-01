@@ -28,15 +28,9 @@
 import productService from './ProductService'
 export default {
   methods: {
-    getProducts() {
-      alert(this.filterModel.name + this.filterModel.code);
-      productService.doProductQury(this.filterModel).then(res=>{
-          alert("got response");
-          console.log(res);
-
-          this.products = res.data;
-      });
-      
+    async getProducts() {
+      var response = await productService.doProductQury(this.filterModel);
+      this.products = response.data.data;
     },
     doExcelExport() {
       alert("Ex" + filterModel.name + filterModel.code);
