@@ -28,6 +28,25 @@
           <mu-button class="m-left" @click="cancel">Cancel</mu-button>
         </mu-card-actions>
       </mu-card>
+
+      <mu-dialog
+        width="600"
+        max-width="80%"
+        title="Confirmation!"
+        :esc-press-close="false"
+        :overlay-close="false"
+        :open.sync="openModal"
+      >Do you want set price greater than 999?
+        <mu-button
+          slot="actions"
+          color="primary"
+          @click="greaterThan999Confirmed = true; save()"
+        >Yes</mu-button>
+        <mu-button
+          slot="actions"
+          @click="greaterThan999Confirmed = false; openModal = false;"
+        >Cancel</mu-button>
+      </mu-dialog>
     </mu-container>
   </div>
 </template>
@@ -69,7 +88,9 @@ export default {
 
       noticationMessage: "",
       willShow: false,
-      noticationColor: "success"
+      noticationColor: "success",
+      greaterThan999Confirmed: false,
+      openModal: false
     };
   },
   methods: {
@@ -81,8 +102,14 @@ export default {
       return message.join(",");
     },
     async save() {
+      this.openModal = false;
       var validationResult = await this.$refs.form.validate();
       if (!validationResult) return;
+      if (this.product.price > 999 && !this.greaterThan999Confirmed) {
+        this.openModal = true;
+        return;
+      }
+
       var response = await productService.createProduct(this.product);
 
       if (response.data.success) {
@@ -101,8 +128,9 @@ export default {
           this.willShow = false;
         }, 5000);
       }
-
-      if (response.data.success) this.cancel();
+      setTimeout(() => {
+        if (response.data.success) this.cancel();
+      }, 2000);
     },
     cancel() {
       router.push({ path: "/products" });

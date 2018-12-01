@@ -10,7 +10,7 @@
         <mu-card-text>
           <mu-form :model="product" class="mu-demo-form" label-width="100" ref="form">
             <mu-form-item prop="code" label="Code" :rules="validationRules.code">
-              <mu-text-field disabled  v-model="product.code"></mu-text-field>
+              <mu-text-field disabled v-model="product.code"></mu-text-field>
             </mu-form-item>
             <mu-form-item label="Name" help-text prop="name" :rules="validationRules.name">
               <mu-text-field v-model="product.name" prop="name"></mu-text-field>
@@ -28,6 +28,24 @@
           <mu-button class="m-left" @click="cancel">Cancel</mu-button>
         </mu-card-actions>
       </mu-card>
+      <mu-dialog
+        width="600"
+        max-width="80%"
+        title="Confirmation!"
+        :esc-press-close="false"
+        :overlay-close="false"
+        :open.sync="openModal"
+      >Do you want set price greater than 999?
+        <mu-button
+          slot="actions"
+          color="primary"
+          @click="greaterThan999Confirmed = true; save()"
+        >Yes</mu-button>
+        <mu-button
+          slot="actions"
+          @click="greaterThan999Confirmed = false; openModal = false;"
+        >Cancel</mu-button>
+      </mu-dialog>
     </mu-container>
   </div>
 </template>
@@ -68,7 +86,9 @@ export default {
 
       noticationMessage: "",
       willShow: false,
-      noticationColor: "success"
+      noticationColor: "success",
+      greaterThan999Confirmed: false,
+      openModal: false
     };
   },
   methods: {
@@ -80,8 +100,14 @@ export default {
       return message.join(",");
     },
     async save() {
+      this.openModal = false;
       var validationResult = await this.$refs.form.validate();
       if (!validationResult) return;
+      if (this.product.price > 999 && !this.greaterThan999Confirmed) {
+        this.openModal = true;
+        return;
+      }
+
       var response = await productService.updateProduct(this.product);
 
       if (response.data.success) {
@@ -99,17 +125,20 @@ export default {
         setTimeout(() => {
           this.willShow = false;
         }, 5000);
-      }     
+      }
     },
     cancel() {
       router.push({ path: "/products" });
     }
   },
-  async created(){
+  async created() {
     var productId = this.$route.params.id;
-    var response = await productService.doProductQury({id:productId, pageNumber:1, pageSize:1});
+    var response = await productService.doProductQury({
+      id: productId,
+      pageNumber: 1,
+      pageSize: 1
+    });
     this.product = response.data.data[0];
   }
-
 };
 </script>
