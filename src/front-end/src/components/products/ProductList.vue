@@ -1,54 +1,91 @@
 <template>
   <div>
-    <h2>Product List</h2>
     <mu-container>
-      <mu-paper :z-depth="1">
-        <mu-text-field v-model="filterModel.name" placeholder="Search by product name"></mu-text-field>
-        <mu-text-field v-model="filterModel.code" placeholder="Search by product code"></mu-text-field>
-        <div class="button-wrapper">
-          <mu-button flat @click="getProducts">Search</mu-button>
-          <mu-button flat @click="doExcelExport">Export</mu-button>
-          <mu-button flat @click="addProduct">Add Product</mu-button>
-        </div>
+      <mu-card style="width: 100%;  margin: 0 auto;">
+        <mu-card-title title="Product List" sub-title></mu-card-title>
+        <mu-card-text>
+          <mu-row gutter>
+            <mu-col span="6">
+              <mu-text-field
+                full-width
+                v-model="filterModel.name"
+                placeholder="Search by product name"
+                @keyup.enter="getProducts"
+              ></mu-text-field>
+            </mu-col>
+            <mu-col span="6">
+              <mu-text-field
+                full-width
+                v-model="filterModel.code"
+                placeholder="Search by product code"
+                @keyup.enter="getProducts"
+              ></mu-text-field>
+            </mu-col>
+          </mu-row>
+          <mu-row gutter>
+            <mu-col span="6">
+              <mu-button full-width @click="getProducts">
+                <mu-icon value="search"></mu-icon>Search
+              </mu-button>
+            </mu-col>
+            <mu-col span="6">
+              <mu-button full-width @click="doExcelExport">
+                <mu-icon value="arrow_downward"></mu-icon>Export
+              </mu-button>
+            </mu-col>
+          </mu-row>
 
-        <mu-data-table :loading="loading" no-data-text="..." :columns="columns" :data="products">
-          <template slot-scope="scope">
-            <td>
-              <img :src="scope.row.photoUrl" class="img-fluid productimg" alt>
-            </td>
-            <td class="is-center">{{scope.row.code}}</td>
-            <td class="is-center">{{scope.row.name}}</td>
-            <td class="is-center">{{scope.row.price}}</td>
-            <td class="is-center">{{scope.row.lastUpdated}}</td>
-            <td class="is-right">
-              <mu-button small flat @click="edit(scope.row.id)">Edit</mu-button>
-              <mu-button
-                small
-                flat
-                color="secondary"
-                @click="lastSelectedItemId = scope.row.id;openDeleteModal = true"
-              >Remove</mu-button>
-              <mu-dialog
-                width="600"
-                max-width="80%"
-                title="Confirmation!"
-                :esc-press-close="false"
-                :overlay-close="false"
-                :open.sync="openDeleteModal"
-              >Do you want to delete this product?
-                <mu-button slot="actions" color="primary" @click="doDelete">Yes</mu-button>
-                <mu-button slot="actions" @click="openDeleteModal = false">Cancel</mu-button>
-              </mu-dialog>
-            </td>
-          </template>
-        </mu-data-table>
-        <mu-pagination
-          :total="productCount"
-          @change="onPageChange"
-          :page-size="filterModel.pageSize"
-          :current.sync="filterModel.pageNumber"
-        ></mu-pagination>
-      </mu-paper>
+          <mu-button large fab color="red" @click="addProduct" class="btn-add">
+            <mu-icon value="add"></mu-icon>
+          </mu-button>
+
+          <br>
+
+          <mu-data-table :loading="loading" no-data-text="..." :columns="columns" :data="products">
+            <template slot-scope="scope">
+              <td>
+                <img :src="scope.row.photoUrl" class="img-fluid productimg" alt>
+              </td>
+              <td class="is-center">{{scope.row.code}}</td>
+              <td class="is-center">{{scope.row.name}}</td>
+              <td class="is-center">{{scope.row.price}}</td>
+              <td class="is-center">{{scope.row.lastUpdated}}</td>
+              <td class="is-right">
+                <mu-button small flat @click="edit(scope.row.id)">
+                  <mu-icon value="edit"></mu-icon>
+                </mu-button>
+                <mu-button
+                  small
+                  flat
+                  color="secondary"
+                  @click="lastSelectedItemId = scope.row.id;openDeleteModal = true"
+                >
+                  <mu-icon value="delete"></mu-icon>
+                </mu-button>
+                <mu-dialog
+                  width="600"
+                  max-width="80%"
+                  title="Confirmation!"
+                  :esc-press-close="false"
+                  :overlay-close="false"
+                  :open.sync="openDeleteModal"
+                >Do you want to delete this product?
+                  <mu-button slot="actions" color="primary" @click="doDelete">Yes</mu-button>
+                  <mu-button slot="actions" @click="openDeleteModal = false">Cancel</mu-button>
+                </mu-dialog>
+              </td>
+            </template>
+          </mu-data-table>
+          <mu-pagination
+            :total="productCount"
+            @change="onPageChange"
+            :page-size="filterModel.pageSize"
+            :current.sync="filterModel.pageNumber"
+          ></mu-pagination>
+        </mu-card-text>
+        <mu-card-actions></mu-card-actions>
+      </mu-card>
+      <mu-paper :z-depth="1"></mu-paper>
     </mu-container>
   </div>
 </template>
@@ -151,6 +188,26 @@ export default {
 img.productimg {
   width: 150px;
   height: 100px;
+}
+
+.pd-10 {
+  padding: 10px;
+}
+.btn-add {
+  outline: none;
+  -webkit-appearance: none;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 101;
+}
+.txt-right {
+  text-align: right;
+}
+.title {
+  background-color: #2196f3;
+  padding: 10px;
+  color: #fff;
 }
 </style>
 

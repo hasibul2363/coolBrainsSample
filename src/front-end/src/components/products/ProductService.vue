@@ -1,6 +1,6 @@
 <script>
 import axios from "axios";
-var serviceBaseUrl = "http://localhost:5000/api/";
+var serviceBaseUrl = "http://localhost:6502/api/";
 export default {
   doProductQury(query) {
     return axios.post(serviceBaseUrl + "query/ProductQuery", query);

@@ -67,7 +67,7 @@ namespace SuitSupply.ProductCatalog.WebService
             services.AddTransient<IReadOnlyRepository, Repository>();
 
             var contextBuilder = new DbContextOptionsBuilder();
-            contextBuilder.UseSqlServer(@"Password=Start777;Persist Security Info=True;User ID=sa;Initial Catalog=PC;Data Source=localhost\MSSQLSERVER_2017");
+            contextBuilder.UseSqlServer(@"Password=123;Persist Security Info=True;User ID=sa;Initial Catalog=ProductCatalog;Data Source=NAZMUL\MSSQLSERVER14");
             services.AddSingleton(contextBuilder.Options);
             services.AddTransient<BaseContext,ProductCatalogDbContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -105,7 +105,8 @@ namespace SuitSupply.ProductCatalog.WebService
 
 
             SuitWebApiBootstrapper.Use(app);
-
+            var context = app.ApplicationServices.GetService<BaseContext>();
+            context.Database.EnsureCreated();
 
 
         }
