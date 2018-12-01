@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SuitSupply.ProductCatalog.CommandHandlers
 {
-    class DeleteProductCommandHandler : SuitCommandHandler<DeleteProductCommand>
+    public class DeleteProductCommandHandler : SuitCommandHandler<DeleteProductCommand>
     {
         public ISuitLog Log { get; set; }
         public IRepository Repository { get; set; }

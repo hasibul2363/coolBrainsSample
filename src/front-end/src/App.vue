@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navbar></navbar>
-    <router-view/>
+    <div class="contentBody">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -14,4 +16,7 @@ export default {
 
 
 <style>
+.contentBody{
+  margin-top:25px
+}
 </style>

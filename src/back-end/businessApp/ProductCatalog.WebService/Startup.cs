@@ -54,6 +54,15 @@ namespace SuitSupply.ProductCatalog.WebService
             services.AddTransient<ISuitBus, SuitInmemoryBus>();
             services.AddTransient<ISuitValidator<CreateProductCommand>, CreateProductCommandValidator>();
             services.AddTransient<SuitCommandHandler<CreateProductCommand>, CreateProductCommandHandler>();
+
+            services.AddTransient<ISuitValidator<DeleteProductCommand>, DeleteProductCommandValidator>();
+            services.AddTransient<SuitCommandHandler<DeleteProductCommand>, DeleteProductCommandHandler>();
+
+            services.AddTransient<ISuitValidator<UpdateProductCommand>, UpdateProductCommandValidator>();
+            services.AddTransient<SuitCommandHandler<UpdateProductCommand>, UpdateProductCommandHandler>();
+
+
+
             services.AddTransient<IRepository, Repository>();
             services.AddTransient<IReadOnlyRepository, Repository>();
 
@@ -73,6 +82,7 @@ namespace SuitSupply.ProductCatalog.WebService
 
             Mapper.Initialize(cfg => {
                 cfg.CreateMap<CreateProductCommand, Product>();
+                cfg.CreateMap<UpdateProductCommand, Product>();
             });
         }
 

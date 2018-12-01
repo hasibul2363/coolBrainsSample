@@ -26,13 +26,13 @@ namespace SuitSupply.ProductCatalog.WebService.Controllers
         }
 
         [HttpPost]
-        public Task<CommandResponse> UpdateProduct(UpdateProductCommand command)
+        public Task<CommandResponse> UpdateProduct([FromBody]UpdateProductCommand command)
         {
             return Bus.Send(command);
         }
 
         [HttpPost]
-        public Task<CommandResponse> DeleteProduct(DeleteProductCommand command)
+        public Task<CommandResponse> DeleteProduct([FromBody]DeleteProductCommand command)
         {
             return Bus.Send(command);
         }
