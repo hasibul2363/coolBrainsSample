@@ -10,16 +10,22 @@
 <script>
 import Navbar from "./components/Navbar";
 export default {
-  components: {Navbar}
+  components: { Navbar }
 };
 </script>
 
 
 <style>
-.contentBody{
-  margin-top:25px
+.contentBody {
+  margin-top: 25px;
 }
 .mu-button.m-left {
   margin-left: 10px;
+}
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 </style>

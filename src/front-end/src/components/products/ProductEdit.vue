@@ -9,12 +9,19 @@
         <mu-card-title title="Update Product" sub-title></mu-card-title>
         <mu-card-text>
           <mu-form :model="product" class="mu-demo-form" label-width="100" ref="form">
-            <mu-form-item prop="code" label="Code" :rules="validationRules.code">
-              <mu-text-field disabled v-model="product.code"></mu-text-field>
-            </mu-form-item>
-            <mu-form-item label="Name" help-text prop="name" :rules="validationRules.name">
-              <mu-text-field v-model="product.name" prop="name"></mu-text-field>
-            </mu-form-item>
+            <mu-row gutter>
+              <mu-col span="9">
+                <mu-form-item prop="code" label="Code" :rules="validationRules.code">
+                  <mu-text-field disabled v-model="product.code"></mu-text-field>
+                </mu-form-item>
+                <mu-form-item label="Name" help-text prop="name" :rules="validationRules.name">
+                  <mu-text-field v-model="product.name" prop="name"></mu-text-field>
+                </mu-form-item>
+              </mu-col>
+              <mu-col span="3">
+                <img :src="product.photoUrl" class="center">
+              </mu-col>
+            </mu-row>
             <mu-form-item prop="photoUrl" label="Photo Url" :rules="validationRules.photoUrl">
               <mu-text-field v-model="product.photoUrl"></mu-text-field>
             </mu-form-item>
