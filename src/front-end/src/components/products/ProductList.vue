@@ -44,12 +44,12 @@
           <mu-data-table :loading="loading" no-data-text="..." :columns="columns" :data="products">
             <template slot-scope="scope">
               <td>
-                <img :src="scope.row.photoUrl" class="img-fluid productimg" alt>
+                <img :src="scope.row.photoUrl" class="productimg" alt>
               </td>
               <td class="is-center">{{scope.row.code}}</td>
               <td class="is-center">{{scope.row.name}}</td>
               <td class="is-center">{{scope.row.price}}</td>
-              <td class="is-center">{{scope.row.lastUpdated}}</td>
+              <td class="is-center">{{scope.row.lastUpdated|date}}</td>
               <td class="is-right">
                 <mu-button small flat @click="edit(scope.row.id)">
                   <mu-icon value="edit"></mu-icon>
@@ -165,12 +165,13 @@ export default {
           title: "LastUpdated",
           name: "lastUpdated",
           align: "center",
-          sortable: false
+          sortable: false,
+          width: 240
         },
         {
           title: "",
           sortable: false,
-          width: 300
+          width: 225
         }
       ],
       loading: false,
@@ -186,8 +187,8 @@ export default {
 </script>
 <style>
 img.productimg {
-  width: 150px;
-  height: 100px;
+  width: 100px;
+  height: 80px;
 }
 
 .pd-10 {
