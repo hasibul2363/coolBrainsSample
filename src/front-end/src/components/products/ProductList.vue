@@ -19,7 +19,7 @@
             <td class="is-center">{{scope.row.code}}</td>
             <td class="is-center">{{scope.row.name}}</td>
             <td class="is-center">{{scope.row.price}}</td>
-            <td class="is-center">{{scope.row.lastUpdated}}</td>
+            <td class="is-center">{{scope.row.lastUpdated|date}}</td>
             <td class="is-right">
               <mu-button small flat @click="edit(scope.row.id)">Edit</mu-button>
               <mu-button
@@ -128,12 +128,13 @@ export default {
           title: "LastUpdated",
           name: "lastUpdated",
           align: "center",
-          sortable: false
+          sortable: false,
+          width: 222
         },
         {
           title: "",
           sortable: false,
-          width: 300
+          width: 230
         }
       ],
       loading: false,
