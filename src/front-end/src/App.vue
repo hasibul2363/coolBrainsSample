@@ -19,4 +19,7 @@ export default {
 .contentBody{
   margin-top:25px
 }
+.mu-button.m-left {
+  margin-left: 10px;
+}
 </style>

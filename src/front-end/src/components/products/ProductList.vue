@@ -65,8 +65,10 @@ export default {
       this.products = response.data.data;
       this.productCount = response.data.totalCount;
     },
-    doExcelExport() {
-      alert("Ex" + filterModel.name + filterModel.code);
+    async doExcelExport() {
+      let link = document.createElement("a");
+      link.href = productService.getDoExcelExportUrl(this.filterModel);
+      link.click();
     },
     addProduct() {
       router.push({ path: "/productcreate" });

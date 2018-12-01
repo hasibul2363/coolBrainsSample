@@ -5,6 +5,9 @@ export default {
   doProductQury(query) {
     return axios.post(serviceBaseUrl + "query/ProductQuery", query);
   },
+  getDoExcelExportUrl(query) {
+    return serviceBaseUrl + "query/DoExcelExport?name="+query.name+"&code="+query.code;
+  },
   createProduct(model) {
     return axios.post(serviceBaseUrl + "command/CreateProduct", model);
   },

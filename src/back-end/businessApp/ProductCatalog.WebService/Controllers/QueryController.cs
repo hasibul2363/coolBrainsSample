@@ -32,9 +32,13 @@ namespace SuitSupply.ProductCatalog.WebService.Controllers
             return Bus.Query(query);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> DoExcelExport([FromBody] ExcelExportQuery query)
+        [HttpGet]
+        public async Task<IActionResult> DoExcelExport([FromQuery] string name, [FromQuery]string code)
         {
+            var query = new ExcelExportQuery
+            {
+                Name = name, Code = code
+            };
             var response = await Bus.Query(query);
             return File(response.Data, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ProductCatalog.xlsx");
         }
