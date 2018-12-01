@@ -42,6 +42,12 @@
             </td>
           </template>
         </mu-data-table>
+        <mu-pagination
+          :total="productCount"
+          @change="onPageChange"
+          :page-size="filterModel.pageSize"
+          :current.sync="filterModel.pageNumber"
+        ></mu-pagination>
       </mu-paper>
     </mu-container>
   </div>
@@ -51,9 +57,13 @@ import productService from "./ProductService";
 import router from "../../router";
 export default {
   methods: {
-    async getProducts() {
+    async getProducts(reset) {
+      if (reset) {
+        this.filterModel.pageNumber = 1;
+      }
       var response = await productService.doProductQury(this.filterModel);
       this.products = response.data.data;
+      this.productCount = response.data.totalCount;
     },
     doExcelExport() {
       alert("Ex" + filterModel.name + filterModel.code);
@@ -67,11 +77,15 @@ export default {
         id: this.lastSelectedItemId
       });
       if (response.data.success) {
-        this.getProducts();
+        this.getProducts(true);
       }
     },
     edit(id) {
       router.push({ path: "/productedit/" + id });
+    },
+    onPageChange(pageNumber) {
+      this.filterModel.pageNumber = pageNumber;
+      this.getProducts(false);
     }
   },
   data() {
@@ -80,7 +94,7 @@ export default {
         name: "",
         code: "",
         pageNumber: 1,
-        pageSize: 10
+        pageSize: 3
       },
       products: [],
       columns: [
@@ -122,8 +136,12 @@ export default {
       ],
       loading: false,
       openDeleteModal: false,
-      lastSelectedItemId: ""
+      lastSelectedItemId: "",
+      productCount: 0
     };
+  },
+  created() {
+    this.getProducts(true);
   }
 };
 </script>
