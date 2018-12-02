@@ -19,7 +19,8 @@
                 </mu-form-item>
               </mu-col>
               <mu-col span="3">
-                <img :src="product.photoUrl" class="center">
+                <img v-if="product.photoUrl !==''" :src="product.photoUrl" class="center">
+                <img v-else src="../../assets/150.png" class="center" alt>
               </mu-col>
             </mu-row>
             <mu-form-item prop="photoUrl" label="Photo Url" :rules="validationRules.photoUrl">

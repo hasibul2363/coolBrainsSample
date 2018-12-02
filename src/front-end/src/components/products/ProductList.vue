@@ -44,7 +44,13 @@
           <mu-data-table :loading="loading" no-data-text="..." :columns="columns" :data="products">
             <template slot-scope="scope">
               <td>
-                <img :src="scope.row.photoUrl" class="productimg" alt>
+                <img
+                  v-if="scope.row.photoUrl !==''"
+                  :src="scope.row.photoUrl"
+                  class="productimg"
+                  alt
+                >
+                <img v-else src="../../assets/150.png" class="productimg" alt>
               </td>
               <td class="is-center">{{scope.row.code}}</td>
               <td class="is-center">{{scope.row.name}}</td>
@@ -87,10 +93,10 @@
       </mu-card>
       <mu-paper :z-depth="1"></mu-paper>
     </mu-container>
-     <mu-snackbar position="top-end" :open="willShow" :color="noticationColor">
-        {{noticationMessage}}
-        <mu-button flat slot="action" @click="willShow = false" color="#fff">Close</mu-button>
-      </mu-snackbar>
+    <mu-snackbar position="top-end" :open="willShow" :color="noticationColor">
+      {{noticationMessage}}
+      <mu-button flat slot="action" @click="willShow = false" color="#fff">Close</mu-button>
+    </mu-snackbar>
   </div>
 </template>
 <script>
@@ -119,9 +125,9 @@ export default {
       var response = await productService.deleteProduct({
         id: this.lastSelectedItemId
       });
-      
+
       if (response.data.success) {
-         this.getProducts(true);
+        this.getProducts(true);
         this.noticationColor = "success";
         this.noticationMessage = "Action Successfull";
         this.willShow = true;
@@ -198,7 +204,7 @@ export default {
       productCount: 0,
       noticationMessage: "",
       willShow: false,
-      noticationColor: "success",
+      noticationColor: "success"
     };
   },
   created() {
