@@ -197,7 +197,7 @@ img.productimg {
 .btn-add {
   outline: none;
   -webkit-appearance: none;
-  position: fixed;
+  position: fixed !important;
   right: 16px;
   bottom: 16px;
   z-index: 101;
