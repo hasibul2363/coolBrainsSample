@@ -1,12 +1,19 @@
 <script>
+import config from "../../config.js";
 import axios from "axios";
-var serviceBaseUrl = "http://localhost:6502/api/";
+var serviceBaseUrl = config.API_BaseUrl + "/api/v1/";
 export default {
   doProductQury(query) {
     return axios.post(serviceBaseUrl + "query/ProductQuery", query);
   },
   getDoExcelExportUrl(query) {
-    return serviceBaseUrl + "query/DoExcelExport?name="+query.name+"&code="+query.code;
+    return (
+      serviceBaseUrl +
+      "query/DoExcelExport?name=" +
+      query.name +
+      "&code=" +
+      query.code
+    );
   },
   createProduct(model) {
     return axios.post(serviceBaseUrl + "command/CreateProduct", model);

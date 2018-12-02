@@ -87,6 +87,10 @@
       </mu-card>
       <mu-paper :z-depth="1"></mu-paper>
     </mu-container>
+     <mu-snackbar position="top-end" :open="willShow" :color="noticationColor">
+        {{noticationMessage}}
+        <mu-button flat slot="action" @click="willShow = false" color="#fff">Close</mu-button>
+      </mu-snackbar>
   </div>
 </template>
 <script>
@@ -115,8 +119,22 @@ export default {
       var response = await productService.deleteProduct({
         id: this.lastSelectedItemId
       });
+      
       if (response.data.success) {
-        this.getProducts(true);
+         this.getProducts(true);
+        this.noticationColor = "success";
+        this.noticationMessage = "Action Successfull";
+        this.willShow = true;
+        setTimeout(() => {
+          this.willShow = false;
+        }, 3000);
+      } else {
+        this.noticationMessage = "Failed to delete";
+        this.willShow = true;
+        this.noticationColor = "error";
+        setTimeout(() => {
+          this.willShow = false;
+        }, 5000);
       }
     },
     edit(id) {
@@ -177,7 +195,10 @@ export default {
       loading: false,
       openDeleteModal: false,
       lastSelectedItemId: "",
-      productCount: 0
+      productCount: 0,
+      noticationMessage: "",
+      willShow: false,
+      noticationColor: "success",
     };
   },
   created() {
