@@ -4,8 +4,6 @@ import axios from "axios";
 var serviceBaseUrl = config.API_BaseUrl + "/api/v1/";
 export default {
   doProductQury(query) {
-    console.log("HEH");
-    console.log(config.API_BaseUrl);
     return axios.post(serviceBaseUrl + "query/ProductQuery", query);
   },
   getDoExcelExportUrl(query) {
